@@ -8,3 +8,21 @@
 ; +=========================+
 
 use32
+org 0x1000
+
+        jmp 0x0000:maink16
+        
+        kernel_v        db "Kernel.asm V0.01 (From February 12 2017)"
+        newline         db 10,0
+        
+        align 16
+        stack16:        rb 3072
+        
+; maink16
+; "16-bit stub before kernel"
+
+maink16:
+        cli
+        cld
+        mov ax, 0
+        mov es, ax
